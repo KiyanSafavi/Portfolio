@@ -8,28 +8,29 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #1e1e2f, #12121c);
+      background-color: #222;
       font-family: "Segoe UI", sans-serif;
       color: #fff;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
     }
 
     h1 {
       margin: 40px 0 10px;
       font-size: 2.5rem;
+      color: #ffffff;
     }
 
     p {
       margin-bottom: 40px;
-      color: #bbb;
+      color: #aaa;
     }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 30px;
       width: 90%;
       max-width: 1200px;
@@ -37,13 +38,20 @@
     }
 
     .project-card {
+      height: 250px;
       backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 16px;
       overflow: hidden;
       transition: transform 0.3s;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px 20px;
+      box-shadow: 0 4px 20px rgba(255,255,255,0.05);
     }
 
     .project-card:hover {
@@ -51,22 +59,29 @@
     }
 
     .project-card img {
-      width: 100%;
-      height: 180px;
+      width: auto;
+      height: 80px;
       object-fit: contain;
-      background: #111;
-      padding: 20px;
+      margin-bottom: 25px;
+      display: block;
+      filter: drop-shadow(0 0 4px rgba(0,0,0,0.3));
     }
 
     .project-card a {
-      display: block;
-      padding: 15px;
       text-decoration: none;
-      color: #00bcd4;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 6px 12px;
+      border-radius: 6px;
       font-weight: bold;
       font-size: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      background-color: rgba(0, 0, 0, 0.2);
+      word-break: break-word;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .project-card a:hover {
+      background: #00eaff;
+      color: #000;
     }
 
     footer {
@@ -78,7 +93,7 @@
 </head>
 <body>
   <h1>Kiyan Safavi Portfolio</h1>
-  <p>Web Projects with Dark & Liquid Glass Style</p>
+  <p>Rtweb Agency</p>
 
   <div class="projects">
     <div class="project-card">
@@ -95,12 +110,6 @@
       <img src="https://danaenergy.com/wp-content/uploads/2023/02/Logo-1.svg" alt="Dana Energy" />
       <a href="https://danaenergy.com/" target="_blank">danaenergy.com</a>
     </div>
-
-    <div class="project-card">
-      <img src="https://golromi.ir/wp-content/uploads/2023/04/logo-1.png" alt="Golromi" />
-      <a href="https://golromi.ir/" target="_blank">golromi.ir</a>
-    </div>
-
     <div class="project-card">
       <img src="https://decosun.co/wp-content/uploads/2024/06/%D9%81-%D8%AF%DA%A9%D9%88%D8%B3%D8%A7%D9%86.png" alt="Decosun" />
       <a href="https://decosun.co/" target="_blank">decosun.co</a>
