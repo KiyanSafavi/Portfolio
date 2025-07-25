@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kian's Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .card {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem 0;
+    }
+    .card-link {
+      color: #00d8ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .card-link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kian Safavi – Portfolio</h1>
+  <div class="grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/400x180?text=Hamrah+Bazargan" alt="Hamrah Bazargan" />
+      <div class="card-content">
+        <div class="card-title">Hamrah Bazargan</div>
+        <a class="card-link" href="https://hamrahbazargan.com" target="_blank">View Project →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x180?text=WAS+Company" alt="WAS Company" />
+      <div class="card-content">
+        <div class="card-title">WAS Company</div>
+        <a class="card-link" href="https://was-co.ir" target="_blank">View Project →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x180?text=Dana+Energy" alt="Dana Energy" />
+      <div class="card-content">
+        <div class="card-title">Dana Energy</div>
+        <a class="card-link" href="https://danaenergy.com" target="_blank">View Project →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x180?text=Gol+Romi" alt="Gol Romi" />
+      <div class="card-content">
+        <div class="card-title">Gol Romi</div>
+        <a class="card-link" href="https://golromi.ir" target="_blank">View Project →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x180?text=Decosun" alt="Decosun" />
+      <div class="card-content">
+        <div class="card-title">Decosun</div>
+        <a class="card-link" href="https://decosun.co" target="_blank">View Project →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x180?text=Asan+Ghesti" alt="Asan Ghesti" />
+      <div class="card-content">
+        <div class="card-title">Asan Ghesti</div>
+        <a class="card-link" href="https://asanghesti.com" target="_blank">View Project →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x180?text=Raha+Gallery" alt="Raha Gallery" />
+      <div class="card-content">
+        <div class="card-title">Raha Gallery</div>
+        <a class="card-link" href="https://rahagalleri.ir" target="_blank">View Project →</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Kian Safavi – RTWEB.ir
+  </footer>
+</body>
+</html>
