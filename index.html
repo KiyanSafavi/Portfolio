@@ -2,35 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kiyan Safavi | Portfolio</title>
   <style>
+    :root {
+      --color-bg: #0d1117; /* very dark background */
+      --color-cyan: #2dd4bf;
+      --color-magenta: #e11d48;
+      --color-white: #e6e6e6;
+      --color-border: rgba(45, 212, 191, 0.6);
+      --color-shadow: rgba(45, 212, 191, 0.3);
+      --color-hover-shadow: rgba(225, 29, 72, 0.5);
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #222;
-      font-family: "Segoe UI", sans-serif;
-      color: #fff;
+      background-color: var(--color-bg);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--color-white);
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
     }
 
+    h1, p {
+      user-select: none;
+    }
+
     h1 {
       margin: 40px 0 10px;
-      font-size: 2.5rem;
-      color: #ffffff;
+      font-size: 2.8rem;
+      color: var(--color-cyan);
+      text-shadow: 0 0 8px var(--color-cyan);
+      transition: color 0.3s ease;
     }
 
     p {
       margin-bottom: 40px;
-      color: #aaa;
+      font-size: 1.2rem;
+      color: var(--color-white);
+      opacity: 0.7;
+      transition: color 0.3s ease;
     }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 30px;
       width: 90%;
       max-width: 1200px;
@@ -38,94 +57,155 @@
     }
 
     .project-card {
-      height: 250px;
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
+      height: 280px;
+      background: transparent; /* حذف بک‌گراند */
+      border-radius: 18px;
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 30px 20px 20px;
-      box-shadow: 0 4px 20px rgba(255,255,255,0.05);
+      padding: 35px 25px 25px;
+      border: 2px solid var(--color-border);
+      box-shadow: 0 6px 20px var(--color-shadow);
+      position: relative;
+      cursor: pointer;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      border-color: var(--color-magenta);
+      box-shadow: 0 12px 40px var(--color-hover-shadow);
     }
 
     .project-card img {
+      background: transparent !important; /* حذف بک‌گراند لوگو */
+      padding: 0; /* حذف padding */
+      border-radius: 0;
+      box-shadow: none;
       width: auto;
-      height: 80px;
+      height: 90px;
+      margin-bottom: 28px;
       object-fit: contain;
-      margin-bottom: 25px;
+      filter: drop-shadow(0 0 6px var(--color-cyan));
+      transition: filter 0.3s ease;
       display: block;
-      filter: drop-shadow(0 0 4px rgba(0,0,0,0.3));
+    }
+
+    .project-card:hover img {
+      filter: drop-shadow(0 0 14px var(--color-magenta));
     }
 
     .project-card a {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
       text-decoration: none;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1rem;
+      color: var(--color-cyan);
+      background: rgba(45, 212, 191, 0.15);
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
       word-break: break-word;
-      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 2px 12px var(--color-shadow);
+      transition: color 0.35s ease;
+      z-index: 0;
+      cursor: pointer;
+    }
+
+    .project-card a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -110%;
+      width: 100%;
+      height: 100%;
+      background: var(--color-cyan);
+      transition: bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+      border-radius: 12px;
+      transform: skewX(-15deg);
+    }
+
+    .project-card a:hover::before {
+      bottom: 0;
     }
 
     .project-card a:hover {
-      background: #00eaff;
-      color: #000;
+      color: var(--color-bg);
+      box-shadow: 0 6px 20px var(--color-cyan);
     }
 
     footer {
-      padding: 20px;
-      font-size: 0.8rem;
-      color: #777;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #888;
+      user-select: none;
     }
   </style>
 </head>
 <body>
-  <h1>Kiyan Safavi Portfolio</h1>
-  <p>Rtweb Agency</p>
+  <h1 id="title">Kiyan Safavi Portfolio</h1>
+  <p id="subtitle">Selected Web Projects with Logo Showcase</p>
 
   <div class="projects">
-    <div class="project-card">
+    <div class="project-card" tabindex="0">
       <img src="https://hamrahbazargan.com/wp-content/uploads/2025/05/Logo-Hamrah-Bazargan.png" alt="Hamrah Bazargan" />
-      <a href="https://hamrahbazargan.com/" target="_blank">hamrahbazargan.com</a>
+      <a href="https://hamrahbazargan.com/" target="_blank" rel="noopener noreferrer">hamrahbazargan.com</a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card" tabindex="0">
       <img src="https://was-co.ir/wp-content/uploads/2024/07/Frame-141.png" alt="WAS Co" />
-      <a href="https://was-co.ir/" target="_blank">was-co.ir</a>
+      <a href="https://was-co.ir/" target="_blank" rel="noopener noreferrer">was-co.ir</a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card" tabindex="0">
       <img src="https://danaenergy.com/wp-content/uploads/2023/02/Logo-1.svg" alt="Dana Energy" />
-      <a href="https://danaenergy.com/" target="_blank">danaenergy.com</a>
+      <a href="https://danaenergy.com/" target="_blank" rel="noopener noreferrer">danaenergy.com</a>
     </div>
-    <div class="project-card">
+
+    <div class="project-card" tabindex="0">
       <img src="https://decosun.co/wp-content/uploads/2024/06/%D9%81-%D8%AF%DA%A9%D9%88%D8%B3%D8%A7%D9%86.png" alt="Decosun" />
-      <a href="https://decosun.co/" target="_blank">decosun.co</a>
+      <a href="https://decosun.co/" target="_blank" rel="noopener noreferrer">decosun.co</a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card" tabindex="0">
       <img src="https://asanghesti.com/wp-content/uploads/2022/10/asan-ghesti-logo-main.png" alt="Asan Ghesti" />
-      <a href="https://asanghesti.com/" target="_blank">asanghesti.com</a>
+      <a href="https://asanghesti.com/" target="_blank" rel="noopener noreferrer">asanghesti.com</a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card" tabindex="0">
       <img src="https://rahagalleri.ir/wp-content/uploads/2024/05/photo_2024-12-29_11-37-31.jpg" alt="Raha Gallery" />
-      <a href="https://rahagalleri.ir/" target="_blank">rahagalleri.ir</a>
+      <a href="https://rahagalleri.ir/" target="_blank" rel="noopener noreferrer">rahagalleri.ir</a>
     </div>
   </div>
 
   <footer>© 2025 Kiyan Safavi</footer>
-</body>
-</html>
+
+  <script>
+    // انیمیشن موجی رنگ متن h1 و p بین فیروزه‌ای و سرخابی
+    const colors = ['#2dd4bf', '#e11d48'];
+    const title = document.getElementById('title');
+    const subtitle = document.getElementById('subtitle');
+    let colorIndex = 0;
+    let direction = 1;
+
+    function waveColor() {
+      let color1 = colors[colorIndex];
+      let color2 = colors[(colorIndex + 1) % colors.length];
+
+      let step = 0;
+      const stepsMax = 100;
+      const interval = 30;
+
+      function animate() {
+        let ratio = step / stepsMax;
+        // linear interpolation of RGB channels
+        function lerpColor(a, b, t) {
+          const ah = parseInt(a.replace('#',''),16);
+          const ar = ah >> 16;
+          const ag = (ah >> 8) & 0xff;
+          const ab =
